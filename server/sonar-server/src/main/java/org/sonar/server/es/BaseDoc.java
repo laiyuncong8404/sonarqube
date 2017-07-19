@@ -100,11 +100,19 @@ public abstract class BaseDoc {
     fields.put(key, value);
   }
 
+  public void setField(String key, @Nullable Date value) {
+    fields.put(key, value == null ? null : dateToEpochSeconds(value));
+  }
+
   public Map<String, Object> getFields() {
     return fields;
   }
 
   public static long epochMillisToEpochSeconds(long epochMillis) {
     return epochMillis / 1000L;
+  }
+
+  public static long dateToEpochSeconds(Date date) {
+    return epochMillisToEpochSeconds(date.getTime());
   }
 }
