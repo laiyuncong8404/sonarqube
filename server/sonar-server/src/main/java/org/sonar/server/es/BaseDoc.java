@@ -103,4 +103,8 @@ public abstract class BaseDoc {
   public Map<String, Object> getFields() {
     return fields;
   }
+
+  public static long epochMillisToEpochSeconds(long epochMillis) {
+    return epochMillis / 1000L;
+  }
 }
